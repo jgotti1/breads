@@ -20,23 +20,12 @@ breads.get("/:arrayIndex", (req, res) => {
   if (Bread[req.params.arrayIndex]) {
     res.render("Show", {
       bread: Bread[req.params.arrayIndex],
+      index: req.params.arrayIndex,
     });
   } else {
-    res.render("page404");
+    res.render("404");
   }
 });
-
-// CREATE
-// breads.post("/", (req, res) => {
-//   console.log(req.body);
-//   if (req.body.hasGluten === "on") {
-//     req.body.hasGluten === "true";
-//   } else {
-//     req.body.hasGlutten === "false";
-//   }
-//   Bread.push(req.body);
-//   res.redirect("/breads");
-// });
 
 // CREATE
 breads.post("/", (req, res) => {
@@ -52,4 +41,11 @@ breads.post("/", (req, res) => {
   Bread.push(req.body);
   res.redirect("/breads");
 });
+
+// DELETE
+breads.delete("/:indexArray", (req, res) => {
+  Bread.splice(req.params.indexArray, 1);
+  res.status(303).redirect("/breads");
+});
+
 module.exports = breads;
