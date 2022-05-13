@@ -5,7 +5,9 @@ function Show({ bread, index }) {
   return (
     <Default>
       <h3>{bread.name}</h3>
-      <p>Baked by {bread.baker}</p>
+      {/* <p>Baked by {bread.baker}</p> */}
+      <p>{bread.getBakedBy()}</p>
+
       <p>
         and it
         {bread.hasGluten ? <span> does </span> : <span> does NOT </span>}
