@@ -7,3 +7,13 @@ body {
   display: block;
   margin: auto;
 } */
+.show-buttons {
+  display: flex;
+  gap: 20px;
+}
+.imgBread {
+  width: 850px;
+}
+/* .btn {
+  background-color: beige;
+} */
